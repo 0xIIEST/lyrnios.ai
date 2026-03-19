@@ -10,3 +10,8 @@ services:
     volumes:
       - ./lyrnios_auth.db:/app/lyrnios_auth.db
     restart: always
+
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --url http://backend:8000
+    restart: always
