@@ -57,6 +57,7 @@ export const AuthProvider = ({ children }) => {
 
   // Login with token (called after OAuth redirect)
   const login = (authToken) => {
+    setLoading(true); // Ensure loading is true while we fetch the user
     localStorage.setItem('auth_token', authToken);
     setToken(authToken);
     fetchUser(authToken);
