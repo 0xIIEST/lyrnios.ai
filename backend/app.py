@@ -36,7 +36,7 @@ app.add_middleware(SessionMiddleware, secret_key=SECRET_KEY)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[FRONTEND_URL, "http://localhost:3000", "http://localhost:5173"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -123,7 +123,7 @@ def health():
 
 @app.get("/")
 def root():
-    return {"about": "created by datavorous"}
+    return {"about": "created by angad-basandrai, yashvardhan-rai and datavorous"}
 
 
 # ── Authentication Routes ────────────────────────────────
